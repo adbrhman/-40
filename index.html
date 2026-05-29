@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0a0618" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>منصة توقعات النخبة</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="components.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="screen-loading" class="screen screen-loading active">
+      <div class="loading-logo">
+        <div class="loading-crown">👑</div>
+        <h1 class="loading-title">توقعات النخبة</h1>
+        <div class="loading-spinner">
+          <div class="spinner-ring"></div>
+        </div>
+      </div>
+    </div>
+    <div id="screen-auth" class="screen screen-auth"></div>
+    <div id="screen-app" class="screen screen-app">
+      <header id="app-header" class="app-header">
+        <div class="header-right">
+          <button id="btn-comp-selector" class="header-comp-btn">
+            <img id="header-comp-logo" src="" alt="" class="header-comp-logo" />
+            <span id="header-comp-name" class="header-comp-name"></span>
+            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <span id="header-title" class="header-title"></span>
+        </div>
+        <div class="header-left">
+          <button id="btn-notifications" class="header-icon-btn" aria-label="الإشعارات">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span id="notif-badge" class="notif-badge hidden">0</span>
+          </button>
+          <button id="btn-user-avatar" class="header-avatar-btn">
+            <img id="header-avatar" src="" alt="" class="header-avatar-img" />
+          </button>
+        </div>
+      </header>
+      <div id="global-notice" class="global-notice hidden">
+        <span id="global-notice-text"></span>
+        <button id="close-notice" class="close-notice-btn" aria-label="إغلاق">×</button>
+      </div>
+      <div id="comp-dropdown" class="comp-dropdown hidden">
+        <div id="comp-dropdown-list"></div>
+      </div>
+      <main id="page-container" class="page-container">
+        <div id="page-pred" class="page page-pred" data-page="pred">
+          <div id="pred-day-tabs-container"></div>
+          <div id="pred-content" class="pred-content">
+            <div class="page-loader"><div class="spinner-ring"></div></div>
+          </div>
+          <div id="pred-footer" class="pred-footer hidden">
+            <div class="pred-footer-info">
+              <span id="pred-count-text" class="pred-count-text"></span>
+              <span id="pred-double-hint" class="pred-double-hint hidden">
+                <span class="double-hint-icon">👉</span>
+                اختر مباراة كمضاعفة
+              </span>
+            </div>
+            <button id="btn-submit-preds" class="btn-submit-preds" disabled>
+              <span id="submit-btn-text">أكمل التوقعات</span>
+            </button>
+          </div>
+        </div>
+        <div id="page-lb" class="page page-lb" data-page="lb">
+          <div id="lb-content" class="lb-content">
+            <div class="page-loader"><div class="spinner-ring"></div></div>
+          </div>
+        </div>
+        <div id="page-hist" class="page page-hist" data-page="hist">
+          <div id="hist-content" class="hist-content">
+            <div class="page-loader"><div class="spinner-ring"></div></div>
+          </div>
+        </div>
+        <div id="page-profile" class="page page-profile" data-page="profile">
+          <div id="profile-content" class="profile-content">
+            <div class="page-loader"><div class="spinner-ring"></div></div>
+          </div>
+        </div>
+      </main>
+      <nav id="bottom-nav" class="bottom-nav"></nav>
+    </div>
+    <div id="screen-admin" class="screen screen-admin">
+      <div id="admin-root"></div>
+    </div>
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div id="modal-box" class="modal-box"></div>
+    </div>
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+    <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
